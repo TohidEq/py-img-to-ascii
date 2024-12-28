@@ -4,11 +4,15 @@ from glob import glob
 
 import warnings
 
+
+# True or False, preview of ascii
+SHOW_PREVIEW = True
+
 # "w"=width, "h"=height, "b"=both, "n"=none
-CUSTOM_SCALE = "b"
+CUSTOM_SCALE = "w"
 # width/height character
-CUSTOM_WIDTH = 20
-CUSTOM_HEIGHT = 10
+CUSTOM_WIDTH = 50
+CUSTOM_HEIGHT = 100
 
 # Darkest character to the brightest character
 CUSTOM_CHARACTERS = "█▓▒░ "
@@ -82,6 +86,11 @@ def main():
         file_name = os.path.basename(img_path)
         file_path = f"./asciies/{file_name}.txt"
         ascii_to_file(ascii=ascii, file_path=file_path)
+        if SHOW_PREVIEW:
+            print(">> preview")
+            for row in ascii:
+                print(row)
+            print("<< end preview\n")
 
     print()
     print("█▓▒░ "[::-1], end="")
